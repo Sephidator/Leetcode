@@ -32,7 +32,7 @@ class Solution:
         :type queries: List[List[str]]
         :rtype: List[float]
         """
-        def bfs(dic, x, y, visited):
+        def dfs(dic, x, y, visited):
             if x not in dic or y not in dic:
                 return -1.0
             elif x in visited:
@@ -42,7 +42,7 @@ class Solution:
             else:
                 for p in dic[x]:
                     visited.append(x)
-                    temp = bfs(dic, p, y, visited)
+                    temp = dfs(dic, p, y, visited)
                     visited.pop()
                     if temp != -1.0:
                         return dic[x, p] * temp
@@ -65,43 +65,9 @@ class Solution:
             dic[second, first] = 1 / values[i]
 
         for x, y in queries:
-            res.append(bfs(dic, x, y, []))
+            res.append(dfs(dic, x, y, []))
 
         return res
-
-
-    def calcEquation1(equations, values, queries):
-        from collections import defaultdict
-        def dfs(d, x, y, visited):
-            if x in visited:
-                return -1.0
-            for p in d[x].items():
-                visited.append(x)
-                if p[0] == y:
-                    return p[1]
-                else:
-                    temp = dfs(d, p[0], y, visited)
-                    if temp and temp != -1:
-                        return p[1] * temp
-                visited.pop()
-            return -1.0
-
-        d = defaultdict(dict)
-        res = []
-
-        for x in range(len(equations)):
-            d[equations[x][0]][equations[x][1]] = values[x]
-            d[equations[x][1]][equations[x][0]] = 1 / values[x]
-        for x, y in queries:
-            if x not in d or y not in d:
-                res.append(-1.0)
-            elif x == y:
-                res.append(1.0)
-            else:
-                visited = []
-                res.append(dfs(d, x, y, visited))
-        return res
-
 
 
 s = Solution();
