@@ -70,7 +70,7 @@ class Solution:
         return res
 
 
-s = Solution();
+s = Solution()
 ad = s.calcEquation([["a","b"],["e","f"],["b","e"]],
                [3.4,1.4,2.3],
                [["b","a"],["a","f"],["f","f"],["e","e"],["c","c"],["a","c"],["f","e"], ["x", "x"]])

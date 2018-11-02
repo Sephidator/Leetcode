@@ -29,7 +29,6 @@ class Solution:
         :type z: int
         :rtype: bool
         """
-        from math import gcd
         # sb: how much water small bottle can contain
         # bb: how much water big bottle can contain
         sb = min(x, y)
@@ -72,7 +71,7 @@ class Solution:
         else:
             return dfs(0, 0, [])
 
-    # 我发现：水壶问题可以转换成"是否存在整数解n1和n2，使得 n1*x + n2*y = z"
+    # 我发现：水壶问题可以转换成"是否存在整数解n1和n2，使得 n1 * x + n2 * y = z"
     # 这个规律是我发现的，具体的数学解释不知道，233
     def canMeasureWater(self, x, y, z):
         """

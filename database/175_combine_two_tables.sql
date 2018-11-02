@@ -32,7 +32,7 @@
 --
 -- 解答思路：left join
 
-# Write your MySQL query statement below
+-- Write your MySQL query statement below
 
 SELECT p.FirstName, p.LastName, a.City, a.State
 FROM Person p LEFT JOIN Address a on p.PersonId = a.PersonId;
