@@ -34,9 +34,19 @@ class Solution:
                 while i >= 1:
                     result = min(result, 1 + perfect_square(number - i*i))
                     i = i - 1
+                    # i是逐渐减小的
+                    # 对于result == 1的情况，只可能会是 i * i == number
+                    # 而这种情况只会出现在第一次扫描i（i最大）的情况下，之后所有的情况都有result>=2
+                    # 所以当检测到result<=2的情况就可以返回了
+                    # （如果第一次是1，直接可以返回，之后的结果必定>=2，所以result==2也可以返回了）
                     if result <= 2:
                         break
-                    elif 4*i*i <= number:  # 奇技淫巧，观察知道最终结果不会大于4，所以有这一句...
+                    # 根据观察结果发现，最终的result<=4必然成立
+                    # 于是，如果i^2是完全平方数之一，必定存在j>=i，使得j^2也是完全平方数
+                    # 而因为j比i大，所以j^2是完全平方数的情况已经被考虑过了
+                    # 因为result<=4，所以不会存在i^2是最大的完全平方数的可能
+                    # （和不够大，或者4 * i^2 = number的情况下(2*i)^2 = number）
+                    elif 4*i*i <= number:
                         break
                 record[number] = result
                 return result
