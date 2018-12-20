@@ -18,6 +18,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # 看看分治法吧
+        # 我看了下自己的笔记，然后估摸着写出来了
+        # 但是我不想写注释了
         if not nums:
             return 0
 
