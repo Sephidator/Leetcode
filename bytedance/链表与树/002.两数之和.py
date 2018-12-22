@@ -27,12 +27,10 @@ class Solution:
         res = ListNode(0)
         current = res
         carry = 0  # 数学上的进位
-        is_header = True
 
         while l1 is not None or l2 is not None:
-            if is_header is False:
-                current.next = ListNode(0)
-                current = current.next
+            current.next = ListNode(0)
+            current = current.next
 
             n1 = 0 if l1 is None else l1.val
             n2 = 0 if l2 is None else l2.val
@@ -41,9 +39,8 @@ class Solution:
 
             l1 = None if l1 is None else l1.next
             l2 = None if l2 is None else l2.next
-            is_header = False
 
         if carry != 0:
             current.next = ListNode(carry)
 
-        return res
+        return res.next
