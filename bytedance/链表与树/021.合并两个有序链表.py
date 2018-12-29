@@ -40,4 +40,3 @@ class Solution(object):
             current.next = l2
         return origin.next
 
-

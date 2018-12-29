@@ -18,3 +18,26 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
+        def isParent(p, node):
+            if p == node:
+                return True
+            elif p is None:
+                return False
+            else:
+                return isParent(p.left, node) or isParent(p.right, node)
+
+        if root in [None, p, q]:
+            return root
+        elif isParent(p, q):
+            return p
+        elif isParent(q, p):
+            return q
+
+        while root:
+            if isParent(root.left, p) and isParent(root.left, q):
+                root = root.left
+            elif isParent(root.right, p) and isParent(root.right, q):
+                root = root.right
+            else:
+                return root
+        return None
