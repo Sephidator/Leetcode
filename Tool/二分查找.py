@@ -19,4 +19,4 @@ def bisect(array, number):
 
 
 my_list = [1, 2, 5, 7, 12, 34, 45, 56, 79]
-print(bisect(my_list, 890))
+print(bisect(my_list, 8))
