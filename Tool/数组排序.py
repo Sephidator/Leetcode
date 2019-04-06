@@ -11,7 +11,7 @@ def cmp(a, b):
         return -1
     elif a[0] > b[0]:
         return 1
-    elif a[1] <= b[1]:
+    elif a[1] > b[1]:
         return -1
     else:
         return 1
@@ -19,4 +19,6 @@ def cmp(a, b):
 
 my_list.sort(key=functools.cmp_to_key(cmp))
 print(my_list)
+
+
 
