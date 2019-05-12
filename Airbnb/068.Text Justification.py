@@ -40,4 +40,4 @@ class Solution:
 
 
 s = Solution()
-print(s.fullJustify(["What", "must", "be", "acknowledgment", "shall", "be"], 16))
+print(s.fullJustify(["What", "must", "be", "acknowledgment", "shall", "be"], 14))
